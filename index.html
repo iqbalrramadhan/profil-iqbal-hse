@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moh. Iqbal Rizqi Ramadhan | HSE </title>
+<meta name="description" content="Portofolio profesional Moh. Iqbal Rizqi Ramadhan — Health, Safety, and Environment (HSE), Ahli K3 Umum Tersertifikasi BNSP.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  /* ===================== DESIGN TOKENS ===================== */
+  :root{
+    --navy: #0B2545;
+    --navy-light: #13315C;
+    --navy-soft: #1D3E6E;
+    --gold: #B8912F;
+    --gold-light: #D4AF37;
+    --grey-bg: #F5F6F8;
+    --grey-line: #E2E5EA;
+    --grey-text: #5B6472;
+    --white: #FFFFFF;
+    --ink: #10192B;
+
+    --font-display: 'Montserrat', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'Roboto Mono', monospace;
+
+    --radius: 6px;
+    --shadow-soft: 0 10px 30px rgba(11, 37, 69, 0.08);
+    --shadow-strong: 0 20px 50px rgba(11, 37, 69, 0.18);
+    --container: 1100px;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html{ scroll-behavior:smooth; }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; }
+  }
+
+  body{
+    font-family: var(--font-body);
+    color: var(--ink);
+    background: var(--white);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  img, svg{ display:block; max-width:100%; }
+
+  a{ color:inherit; text-decoration:none; }
+
+  ul{ list-style:none; }
+
+  .container{
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .eyebrow{
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width: 26px;
+    height: 1px;
+    background: var(--gold);
+    display:inline-block;
+  }
+
+  h1, h2, h3{
+    font-family: var(--font-display);
+    color: var(--navy);
+    line-height:1.15;
+  }
+
+  section{ padding: 96px 0; }
+
+  .section-head{
+    margin-bottom: 48px;
+    max-width: 640px;
+  }
+  .section-head h2{
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    font-weight: 800;
+    margin-top: 10px;
+  }
+  .section-head p{
+    color: var(--grey-text);
+    margin-top: 12px;
+    font-size: 1rem;
+  }
+
+  /* fade-in on scroll */
+  .reveal{
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.is-visible{
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ===================== NAVBAR ===================== */
+  .navbar{
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--grey-line);
+  }
+  .nav-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding: 16px 24px;
+    max-width: var(--container);
+    margin: 0 auto;
+  }
+  .brand{
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--navy);
+    letter-spacing: 0.06em;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .brand .dot{
+    width:7px; height:7px;
+    border-radius:50%;
+    background: var(--gold-light);
+    display:inline-block;
+  }
+  .nav-links{
+    display:flex;
+    gap: 36px;
+  }
+  .nav-links a{
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--navy-light);
+    position:relative;
+    padding: 4px 0;
+    transition: color 0.25s ease;
+  }
+  .nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0; bottom:-2px;
+    height:2px;
+    width:0;
+    background: var(--gold-light);
+    transition: width 0.25s ease;
+  }
+  .nav-links a:hover, .nav-links a:focus-visible{ color: var(--navy); }
+  .nav-links a:hover::after, .nav-links a:focus-visible::after{ width:100%; }
+
+  .nav-toggle{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding: 6px;
+  }
+  .nav-toggle span{
+    width: 24px;
+    height: 2px;
+    background: var(--navy);
+    display:block;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+  .nav-toggle.active span:nth-child(1){ transform: translateY(7px) rotate(45deg); }
+  .nav-toggle.active span:nth-child(2){ opacity:0; }
+  .nav-toggle.active span:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
+
+  /* ===================== HERO ===================== */
+  .hero {
+    position: relative;
+    padding: 84px 0 100px;
+    overflow: hidden;
+  }
+  
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url('background-hse.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(3px);
+    z-index: -2;
+  }
+
+  .hero::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(255, 255, 255, 0.75);
+    z-index: -1;
+  }
+  .hero-inner{
+    display:grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 56px;
+    align-items:center;
+  }
+  .hero-location{
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--grey-text);
+    letter-spacing: 0.05em;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom: 18px;
+  }
+  .hero-location svg{ width:14px; height:14px; fill: var(--gold); }
+
+  .hero h1{
+    font-size: clamp(2.1rem, 4.4vw, 3.35rem);
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+  .hero h1 span{ color: var(--gold); }
+
+  .hero .headline{
+    margin-top: 18px;
+    font-size: 1.08rem;
+    color: var(--navy-light);
+    font-weight: 500;
+    max-width: 480px;
+    border-left: 3px solid var(--gold-light);
+    padding-left: 16px;
+  }
+
+  .hero-ctas{
+    margin-top: 34px;
+    display:flex;
+    gap: 16px;
+    flex-wrap:wrap;
+  }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding: 13px 26px;
+    border-radius: var(--radius);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor:pointer;
+    border: 1.5px solid transparent;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+  }
+  .btn-primary{
+    background: var(--navy);
+    color: var(--white);
+    box-shadow: var(--shadow-soft);
+  }
+  .btn-primary:hover{
+    background: var(--navy-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-strong);
+  }
+  .btn-outline{
+    border-color: var(--navy);
+    color: var(--navy);
+    background: transparent;
+  }
+  .btn-outline:hover{
+    background: var(--navy);
+    color: var(--white);
+    transform: translateY(-2px);
+  }
+
+  /* hero visual: permit tag */
+  .hero-visual{
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height: 340px;
+  }
+  .permit-ring{
+    position:absolute;
+    width: 300px; height: 300px;
+    border: 1.5px dashed rgba(184,145,47,0.5);
+    border-radius: 50%;
+    animation: spin 40s linear infinite;
+  }
+  @keyframes spin{ from{ transform: rotate(0deg);} to{ transform: rotate(360deg);} }
+
+  .avatar-circle{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: linear-gradient(150deg, var(--navy) 0%, var(--navy-soft) 55%, var(--gold) 130%);
+    box-shadow: var(--shadow-strong);
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border: 6px solid var(--white);
+  }
+  .avatar-circle svg{
+    width: 58%;
+    height: 58%;
+    fill: rgba(255,255,255,0.92);
+  }
+
+  .permit-tag{
+    position:absolute;
+    bottom: 6px;
+    right: -6px;
+    background: var(--white);
+    border: 1px solid var(--grey-line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-soft);
+    padding: 10px 14px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-family: var(--font-mono);
+  }
+  .permit-tag .seal{
+    width: 30px; height:30px;
+    border-radius:50%;
+    background: var(--gold-light);
+    color: var(--navy);
+    display:flex; align-items:center; justify-content:center;
+    font-size: 0.62rem;
+    font-weight:700;
+    line-height:1;
+    text-align:center;
+  }
+  .permit-tag .label{
+    font-size: 0.66rem;
+    color: var(--grey-text);
+    line-height:1.3;
+  }
+  .permit-tag .label strong{
+    display:block;
+    color: var(--navy);
+    font-size: 0.72rem;
+  }
+
+  /* ===================== ABOUT ===================== */
+  .about-grid{
+    display:grid;
+    grid-template-columns: 0.9fr 1.4fr;
+    gap: 56px;
+    align-items:flex-start;
+  }
+  .about-card{
+    background: var(--navy);
+    border-radius: var(--radius);
+    padding: 32px 28px;
+    color: var(--white);
+    position:relative;
+    overflow:hidden;
+  }
+  .about-card::before{
+    content:"";
+    position:absolute;
+    top:-40px; right:-40px;
+    width:140px; height:140px;
+    border-radius:50%;
+    background: rgba(184,145,47,0.18);
+  }
+  .about-card .quote-icon{
+    width:30px; height:30px;
+    fill: var(--gold-light);
+    margin-bottom: 16px;
+  }
+  .about-card p{
+    font-size: 0.95rem;
+    color: #E7ECF3;
+    position:relative;
+  }
+  .about-card .cert-line{
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--gold-light);
+    letter-spacing: 0.04em;
+  }
+
+  .about-text p{
+    color: var(--grey-text);
+    margin-bottom: 18px;
+    font-size: 1rem;
+  }
+  .about-text strong{ color: var(--navy); }
+
+  .about-stats{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 28px;
+  }
+  .stat{
+    border: 1px solid var(--grey-line);
+    border-radius: var(--radius);
+    padding: 18px;
+    text-align:left;
+  }
+  .stat .num{
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--navy);
+  }
+  .stat .lbl{
+    font-size: 0.76rem;
+    color: var(--grey-text);
+    margin-top: 4px;
+  }
+
+  /* ===================== EXPERIENCE (LOG TIMELINE) ===================== */
+  .experience{ background: var(--grey-bg); }
+
+  .timeline{
+    position:relative;
+    padding-left: 40px;
+    border-left: 2px solid var(--grey-line);
+  }
+  .log-entry{
+    position:relative;
+    background: var(--white);
+    border: 1px solid var(--grey-line);
+    border-radius: var(--radius);
+    padding: 26px 28px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow-soft);
+  }
+  .log-entry:last-child{ margin-bottom:0; }
+  .log-entry::before{
+    content: attr(data-log);
+    position:absolute;
+    left: -58px;
+    top: 26px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: var(--gold-light);
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 700;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow: 0 0 0 4px var(--grey-bg);
+  }
+  .log-head{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:space-between;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .log-head h3{ font-size: 1.15rem; font-weight:700; }
+  .log-date{
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--gold);
+    background: rgba(184,145,47,0.1);
+    padding: 4px 10px;
+    border-radius: 20px;
+    white-space:nowrap;
+  }
+  .log-role{
+    font-size: 0.9rem;
+    color: var(--navy-light);
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+  .log-entry ul{
+    display:grid;
+    gap: 8px;
+  }
+  .log-entry li{
+    font-size: 0.9rem;
+    color: var(--grey-text);
+    padding-left: 20px;
+    position:relative;
+  }
+  .log-entry li::before{
+    content:"";
+    position:absolute;
+    left:0; top:8px;
+    width: 6px; height:6px;
+    background: var(--gold-light);
+    border-radius:1px;
+    transform: rotate(45deg);
+  }
+
+  /* ===================== EDUCATION & CERTS ===================== */
+  .edu-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+  .edu-card{
+    border: 1px solid var(--grey-line);
+    border-radius: var(--radius);
+    padding: 28px;
+    height:100%;
+  }
+  .edu-card h3{
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+  }
+  .edu-sub{
+    font-size: 0.85rem;
+    color: var(--gold);
+    font-family: var(--font-mono);
+    margin-bottom: 14px;
+  }
+  .edu-card p{ font-size: 0.9rem; color: var(--grey-text); margin-bottom: 6px; }
+
+  .cert-highlight{
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-soft) 100%);
+    color: var(--white);
+    border: none;
+    position:relative;
+    overflow:hidden;
+  }
+  .cert-highlight::after{
+    content:"";
+    position:absolute;
+    right: -30px; bottom:-30px;
+    width:120px; height:120px;
+    border: 1.5px dashed rgba(212,175,55,0.5);
+    border-radius:50%;
+  }
+  .cert-highlight .badge-seal{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background: rgba(212,175,55,0.15);
+    border: 1px solid var(--gold-light);
+    color: var(--gold-light);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    padding: 6px 12px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+  }
+  .cert-highlight h3{ color: var(--white); font-size: 1.2rem; }
+  .cert-highlight p{ color: #DCE3EE; }
+
+  .training-list{
+    margin-top: 40px;
+  }
+  .training-list h3{
+    font-size: 1rem;
+    margin-bottom: 18px;
+    color: var(--navy);
+  }
+  .training-item{
+    display:grid;
+    grid-template-columns: 140px 1fr;
+    gap: 20px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--grey-line);
+  }
+  .training-item:last-child{ border-bottom:none; }
+  .training-item .t-date{
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--gold);
+  }
+  .training-item .t-name{
+    font-weight: 600;
+    font-size: 0.92rem;
+    color: var(--navy);
+  }
+  .training-item .t-org{
+    font-size: 0.82rem;
+    color: var(--grey-text);
+    margin-top: 2px;
+  }
+  .training-item .t-topics{
+    font-size: 0.8rem;
+    color: var(--grey-text);
+    margin-top: 4px;
+    font-style: italic;
+  }
+
+  /* ===================== SKILLS ===================== */
+  .skills{ background: var(--grey-bg); }
+  .skills-grid{
+    display:grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px;
+  }
+  .skill-block{
+    margin-bottom: 34px;
+  }
+  .skill-block:last-child{ margin-bottom:0; }
+  .skill-block h3{
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--navy-light);
+    margin-bottom: 16px;
+    font-family: var(--font-mono);
+    font-weight:500;
+  }
+  .badge-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap: 10px;
+  }
+  .badge{
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--navy);
+    background: var(--white);
+    border: 1px solid var(--grey-line);
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.25s ease;
+  }
+  .badge:hover{
+    border-color: var(--gold-light);
+    background: rgba(184,145,47,0.08);
+    transform: translateY(-2px);
+  }
+  .badge.gold{
+    background: var(--navy);
+    color: var(--gold-light);
+    border-color: var(--navy);
+  }
+
+  .lang-item{ margin-bottom: 20px; }
+  .lang-item:last-child{ margin-bottom:0; }
+  .lang-top{
+    display:flex;
+    justify-content:space-between;
+    font-size: 0.88rem;
+    margin-bottom: 8px;
+  }
+  .lang-top .lname{ font-weight:600; color: var(--navy); }
+  .lang-top .lscore{ font-family: var(--font-mono); color: var(--grey-text); font-size: 0.8rem; }
+  .bar-track{
+    height: 8px;
+    background: var(--grey-line);
+    border-radius: 20px;
+    overflow:hidden;
+  }
+  .bar-fill{
+    height: 100%;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--gold-light) 100%);
+    border-radius: 20px;
+    width: 0%;
+    transition: width 1.2s ease;
+  }
+
+  /* ===================== FOOTER / CONTACT ===================== */
+  .contact{
+    background: var(--navy);
+    color: var(--white);
+    padding: 90px 0 40px;
+  }
+  .contact-inner{
+    display:grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 50px;
+    align-items:flex-start;
+    padding-bottom: 50px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
+  .contact-inner h2{
+    color: var(--white);
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    font-weight: 800;
+    margin-top: 10px;
+    margin-bottom: 16px;
+  }
+  .contact-inner p{
+    color: #C4CCDA;
+    max-width: 420px;
+    margin-bottom: 28px;
+  }
+  .contact-links{ display:grid; gap: 16px; }
+  .contact-link{
+    display:flex;
+    align-items:center;
+    gap: 14px;
+    font-size: 0.92rem;
+    color: #E7ECF3;
+    padding: 14px 16px;
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: var(--radius);
+    transition: all 0.25s ease;
+  }
+  .contact-link:hover{
+    border-color: var(--gold-light);
+    background: rgba(212,175,55,0.08);
+    transform: translateX(4px);
+  }
+  .contact-link svg{ width:18px; height:18px; fill: var(--gold-light); flex-shrink:0; }
+
+  .footer-bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap: 12px;
+    padding-top: 28px;
+    font-size: 0.78rem;
+    color: #8C97AC;
+    font-family: var(--font-mono);
+  }
+  .back-to-top{
+    color: var(--gold-light);
+    font-size: 0.78rem;
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+  .back-to-top svg{ width:12px; height:12px; fill: var(--gold-light); }
+
+  /* ===================== RESPONSIVE ===================== */
+  @media (max-width: 860px){
+    .hero-inner{ grid-template-columns: 1fr; }
+    .hero-visual{ order:-1; min-height: 260px; }
+    .about-grid{ grid-template-columns: 1fr; }
+    .edu-grid{ grid-template-columns: 1fr; }
+    .skills-grid{ grid-template-columns: 1fr; }
+    .contact-inner{ grid-template-columns: 1fr; }
+    .about-stats{ grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 700px){
+    .nav-links{
+      position:absolute;
+      top: 100%;
+      left:0; right:0;
+      background: var(--white);
+      flex-direction:column;
+      gap:0;
+      border-bottom: 1px solid var(--grey-line);
+      max-height:0;
+      overflow:hidden;
+      transition: max-height 0.3s ease;
+    }
+    .nav-links.open{ max-height: 320px; }
+    .nav-links a{
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--grey-line);
+      width:100%;
+    }
+    .nav-toggle{ display:flex; }
+    section{ padding: 64px 0; }
+    .timeline{ padding-left: 28px; }
+    .log-entry::before{ left: -44px; width:30px; height:30px; font-size:0.55rem; }
+    .training-item{ grid-template-columns: 1fr; gap:4px; }
+    .about-stats{ grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== NAVBAR ===================== -->
+<header class="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="brand"><span class="dot"></span>M.I.R.R — HSE</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education & Certifications</a>
+      <a href="#skills">Skills</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="home">
+  <div class="container hero-inner">
+    <div class="hero-content">
+      <div class="hero-location">
+        <svg viewBox="0 0 24 24"><path d="M12 2C7.6 2 4 5.6 4 10c0 6 8 12 8 12s8-6 8-12c0-4.4-3.6-8-8-8zm0 11a3 3 0 110-6 3 3 0 010 6z"/></svg>
+        Tegal, Jawa Tengah, Indonesia
+      </div>
+      <h1>Moh. Iqbal Rizqi <span>Ramadhan</span></h1>
+      <p class="headline">Health, Safety, and Environment (HSE) — Ahli K3 Umum Tersertifikasi BNSP.</p>
+      <div class="hero-ctas">
+        <a href="#" class="btn btn-primary" id="downloadCvBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v10.6l3.3-3.3 1.4 1.4L12 17.4l-4.7-4.7 1.4-1.4L12 13.6V3h0z"/><path d="M5 19h14v2H5z"/></svg>
+          Download CV
+        </a>
+        <a href="#" class="btn btn-outline" id="downloadPortfolioBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v10.6l3.3-3.3 1.4 1.4L12 17.4l-4.7-4.7 1.4-1.4L12 13.6V3h0z"/><path d="M5 19h14v2H5z"/></svg>
+          Download Portofolio
+        </a>
+        <a href="#contact" class="btn btn-outline">Hubungi Saya</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="permit-ring" aria-hidden="true"></div>
+      <div class="avatar-circle" role="img" aria-label="Foto profil Moh. Iqbal Rizqi Ramadhan">
+        <img src="foto-profil.jpg" alt="Foto Moh. Iqbal Rizqi Ramadhan" style="width:100%; height:100%; object-fit:cover; object-position: center top; border-radius:50%;">
+      </div>
+      <div class="permit-tag">
+        <div class="seal">K3<br>BNSP</div>
+        <div class="label">Status<strong>Certified &amp; Active</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ABOUT ===================== -->
+<section id="about">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Tentang Saya</span>
+      <h2>Berkomitmen pada Budaya Keselamatan Kerja</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-card reveal">
+        <svg class="quote-icon" viewBox="0 0 24 24"><path d="M7 7c-2.2 0-4 1.8-4 4v6h6v-6H6c0-1.1.9-2 2-2V7zm10 0c-2.2 0-4 1.8-4 4v6h6v-6h-3c0-1.1.9-2 2-2V7z"/></svg>
+        <p>Fokus dan dedikasi karir saya sepenuhnya berada di sektor HSE — memastikan setiap proses kerja berjalan aman, sehat, dan sesuai regulasi.</p>
+        <div class="cert-line">AK3U · BNSP CERTIFIED · OKT 2025</div>
+      </div>
+      <div class="about-text reveal">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px;">
+          <img src="foto-hse-1.jpg" alt="Moh. Iqbal HSE 1" style="width: 100%; height: 320px; object-fit: cover; object-position: center; border-radius: 8px; box-shadow: 0 10px 30px rgba(11, 37, 69, 0.1);">
+          <img src="foto-hse-2.jpg" alt="Moh. Iqbal HSE 2" style="width: 100%; height: 320px; object-fit: cover; object-position: center; border-radius: 8px; box-shadow: 0 10px 30px rgba(11, 37, 69, 0.1);">
+        </div>
+        <p>Saya adalah seorang dengan keahlian di bidang <strong>Keselamatan dan Kesehatan Kerja (HSE)</strong>. Meskipun memiliki latar belakang pendidikan Sarjana Geografi dari Universitas Negeri Semarang, fokus dan dedikasi karir saya sepenuhnya berada di sektor HSE.</p>
+        <p>Saya tersertifikasi sebagai <strong>Ahli K3 Umum oleh BNSP</strong> dan memiliki rekam jejak dalam inspeksi K3, safety induction, pengelolaan UKL-UPL, serta pengawasan Permit to Work. Saya berkomitmen penuh untuk membangun dan menerapkan budaya keselamatan kerja yang kuat di lingkungan perusahaan.</p>
+        <div class="about-stats">
+          <div class="stat">
+            <div class="num">3.66</div>
+            <div class="lbl">IPK Sarjana Geografi</div>
+          </div>
+          <div class="stat">
+            <div class="num">BNSP</div>
+            <div class="lbl">Ahli K3 Umum</div>
+          </div>
+          <div class="stat">
+            <div class="num">477</div>
+            <div class="lbl">Skor TOEFL ITP</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== EXPERIENCE ===================== -->
+<section class="experience" id="experience">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Rekam Jejak</span>
+      <h2>Work Experience</h2>
+      <p>Log pengalaman kerja secara kronologis, dari penugasan lapangan hingga pengelolaan dokumen keselamatan.</p>
+    </div>
+
+    <div class="timeline">
+      <article class="log-entry reveal" data-log="2">
+        <div class="log-head">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <img src="logo-amarilys.jpeg" alt="Logo PT Amarilys Karisma Gemilang" style="width:36px; height:36px; object-fit:contain; border-radius:6px; border:1px solid var(--grey-line); padding:4px; background:#fff;">
+            <h3>PT Amarilys Karisma Gemilang</h3>
+          </div>
+          <span class="log-date">Nov 2025 — Mei 2026</span>
+        </div>
+        <div class="log-role">HSE Intern &nbsp;·&nbsp; Kabupaten Tegal</div>
+        <ul>
+          <li>Melaksanakan safety induction, safety briefing, toolbox meeting, dan kampanye K3 bagi pekerja.</li>
+          <li>Melakukan inspeksi keselamatan rutin untuk mengidentifikasi potensi bahaya dan ketidaksesuaian K3.</li>
+          <li>Melakukan pengukuran kebisingan dan pencahayaan secara berkala sebagai bagian dari pemantauan lingkungan kerja.</li>
+          <li>Mengawasi proses Permit to Work (PTW) untuk pekerjaan berisiko tinggi.</li>
+          <li>Mendukung pengelolaan dokumen UKL-UPL dan pengendalian kualitas air limbah melalui dosing klorin pada IPAL.</li>
+          <li>Mendukung pelaksanaan training Basic K3 dan penyampaian materi keselamatan kepada pekerja.</li>
+          <li>Melakukan assessment kesehatan awal pekerja baru dan tamu perusahaan, termasuk pemeriksaan tanda vital dan pencatatan hasil assessment.</li>
+        </ul>
+      </article>
+
+      <article class="log-entry reveal" data-log="1">
+        <div class="log-head">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <img src="logo-btpn.png" alt="Logo PT BTPN Syariah Tbk." style="width:36px; height:36px; object-fit:contain; border-radius:6px; border:1px solid var(--grey-line); padding:4px; background:#fff;">
+            <h3>PT BTPN Syariah Tbk.</h3>
+          </div>
+          <span class="log-date">Feb 2024 — Jun 2024</span>
+        </div>
+        <div class="log-role">Area Daya Specialist Intern &nbsp;·&nbsp; Kabupaten Tegal</div>
+        <ul>
+          <li>Melakukan sosialisasi program pendampingan nasabah di wilayah kerja.</li>
+          <li>Menangani administrasi data operasional secara akurat dan tepat waktu.</li>
+          <li>Membangun kerja sama dengan mitra perguruan tinggi untuk mendukung program perusahaan.</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== EDUCATION & CERTIFICATIONS ===================== -->
+<section id="education">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Kualifikasi</span>
+      <h2>Education & Certifications</h2>
+    </div>
+
+    <div class="edu-grid">
+      <div class="edu-card reveal">
+        <h3>Universitas Negeri Semarang</h3>
+        <div class="edu-sub">S1 Geografi &nbsp;·&nbsp; Agustus 2021 — Agustus 2025</div>
+        <p>Menyelesaikan studi Sarjana Geografi dengan capaian akademik yang konsisten.</p>
+        <p><strong style="color:var(--navy)">IPK: 3.66 / 4.00</strong></p>
+      </div>
+
+      <div class="edu-card cert-highlight reveal">
+        <div class="badge-seal">✓ Sertifikasi Nasional</div>
+        <h3>Ahli K3 Umum</h3>
+        <div class="edu-sub" style="color:#D4AF37;">BNSP Certified &nbsp;·&nbsp; Oktober 2025</div>
+        <p>Sertifikasi kompetensi Ahli K3 Umum yang diakui secara nasional oleh Badan Nasional Sertifikasi Profesi (BNSP), meliputi penerapan sistem manajemen keselamatan dan kesehatan kerja secara menyeluruh.</p>
+      </div>
+
+      <div class="edu-card cert-highlight reveal">
+        <div class="badge-seal">✓ Sertifikasi Nasional</div>
+        <h3>Petugas K3</h3>
+        <div class="edu-sub" style="color:#D4AF37;">BNSP Certified &nbsp;·&nbsp; Juni 2026</div>
+        <p>Sertifikasi kompetensi Petugas K3 yang diakui secara nasional oleh Badan Nasional Sertifikasi Profesi (BNSP).</p>
+      </div>
+    </div>
+
+    <div class="training-list reveal">
+      <h3>Pelatihan & Short Course</h3>
+
+      <div class="training-item">
+        <div class="t-date">Okt 2025</div>
+        <div>
+          <div class="t-name">Pelatihan Ahli K3 Umum BNSP</div>
+          <div class="t-org">Midiatama Academy</div>
+        </div>
+      </div>
+
+      <div class="training-item">
+        <div class="t-date">Jan 2026</div>
+        <div>
+          <div class="t-name">Short Class Basic Safety Officer</div>
+          <div class="t-org">BLK Kabupaten Tegal</div>
+          <div class="t-topics">Materi: HIRADC, Alat Pelindung Diri (APD)</div>
+        </div>
+      </div>
+
+      <div class="training-item">
+        <div class="t-date">Feb 2026</div>
+        <div>
+          <div class="t-name">Penyusunan & Pengelolaan Dokumen Lingkungan</div>
+          <div class="t-org">Ioda Academy</div>
+          <div class="t-topics">Materi: AMDAL, UKL-UPL</div>
+        </div>
+      </div>
+
+      <div class="training-item">
+        <div class="t-date">Jul 2026</div>
+        <div>
+          <div class="t-name">Environment Series</div>
+          <div class="t-org">Mutiara Mutu Sertifikasi</div>
+          <div class="t-topics">Materi: AMDAL, UKL-UPL, Limbah B3</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SKILLS ===================== -->
+<section class="skills" id="skills">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Kompetensi</span>
+      <h2>Skills</h2>
+    </div>
+
+    <div class="skills-grid">
+      <div>
+        <div class="skill-block reveal">
+          <h3>Technical Skills — HSE</h3>
+          <div class="badge-row">
+            <span class="badge gold">Safety Inspection</span>
+            <span class="badge gold">Safety Induction</span>
+            <span class="badge gold">Safety Patrol</span>
+            <span class="badge gold">Safety Campaign</span>
+            <span class="badge gold">Safety Observation</span>
+            <span class="badge gold">PTW Monitoring</span>
+            <span class="badge gold">K3 Implementation</span>
+            <span class="badge gold">K3 Training</span>
+            <span class="badge gold">Environmental Awareness</span>
+            <span class="badge gold">Environmental Monitoring</span>
+          </div>
+        </div>
+
+        <div class="skill-block reveal">
+          <h3>Knowledge</h3>
+          <div class="badge-row">
+            <span class="badge">HIRADC</span>
+            <span class="badge">JSA (Job Safety Analysis)</span>
+          </div>
+        </div>
+
+        <div class="skill-block reveal">
+          <h3>Software</h3>
+          <div class="badge-row">
+            <span class="badge">Microsoft Office</span>
+            <span class="badge">Google Workspace</span>
+            <span class="badge">ArcGIS</span>
+            <span class="badge">Canva</span>
+            <span class="badge">Capcut</span>
+            <span class="badge">Adobe Lightroom</span>
+          </div>
+        </div>
+
+        <div class="skill-block reveal">
+          <h3>Soft Skills</h3>
+          <div class="badge-row">
+            <span class="badge">Teamwork</span>
+            <span class="badge">Communication</span>
+            <span class="badge">Observation</span>
+            <span class="badge">Problem Solving</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="skill-block reveal">
+        <h3>Bahasa</h3>
+        <div class="lang-item">
+          <div class="lang-top">
+            <span class="lname">Bahasa Indonesia</span>
+            <span class="lscore">Native</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" data-width="100%"></div></div>
+        </div>
+        <div class="lang-item">
+          <div class="lang-top">
+            <span class="lname">English</span>
+            <span class="lscore">TOEFL ITP 477</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill" data-width="50%"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT / FOOTER ===================== -->
+<footer class="contact" id="contact">
+  <div class="container contact-inner">
+    <div class="reveal">
+      <span class="eyebrow" style="color:var(--gold-light);">Hubungi Saya</span>
+      <h2>Mari Bangun Budaya Keselamatan Kerja Bersama.</h2>
+      <p>Terbuka untuk peluang kerja, kolaborasi, maupun diskusi seputar Health, Safety & Environment. Silakan hubungi saya melalui kontak berikut.</p>
+    </div>
+    <div class="contact-links reveal">
+      <a class="contact-link" href="mailto:Moh.iqbalrizqiramadhan@gmail.com">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        Moh.iqbalrizqiramadhan@gmail.com
+      </a>
+      <a class="contact-link" href="https://www.linkedin.com/in/moh-iqbal-rizqi-ramadhan" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zM8.34 18.34H5.67V9.75h2.67v8.59zM7 8.6a1.55 1.55 0 110-3.1 1.55 1.55 0 010 3.1zm11.34 9.74h-2.67v-4.18c0-1-.02-2.28-1.39-2.28-1.39 0-1.6 1.09-1.6 2.21v4.25H10V9.75h2.56v1.17h.04c.36-.68 1.23-1.39 2.53-1.39 2.71 0 3.21 1.78 3.21 4.1v4.71z"/></svg>
+        linkedin.com/in/moh-iqbal-rizqi-ramadhan
+      </a>
+      <a class="contact-link" href="https://wa.me/6287798749765" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm5.6 14.2c-.2.6-1.3 1.2-1.8 1.3-.5.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.7-4.4-3.9-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.4.2.5.7 1.7.8 1.8.1.2.1.3 0 .5-.1.2-.2.3-.3.5-.2.2-.3.3-.5.5-.2.2-.3.4-.1.7.2.3.9 1.4 1.9 2.3 1.3 1.1 2.3 1.5 2.7 1.6.3.1.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.2.7-.1.3.1 1.7.8 2 .9.3.2.5.2.6.3.1.2.1.7-.1 1.2z"/></svg>
+        +62 877-9874-9765
+      </a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>&copy; 2026 Moh. Iqbal Rizqi Ramadhan. Seluruh hak cipta dilindungi.</span>
+    <a href="#home" class="back-to-top">
+      Kembali ke atas
+      <svg viewBox="0 0 24 24"><path d="M12 4l-8 8h5v8h6v-8h5z"/></svg>
+    </a>
+  </div>
+</footer>
+
+<script>
+  // ============ Mobile navigation toggle ============
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.classList.toggle('active');
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      navToggle.classList.remove('active');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // ============ Scroll reveal animation ============
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  // ============ Animate language bars when visible ============
+  const bars = document.querySelectorAll('.bar-fill');
+  const barObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        el.style.width = el.getAttribute('data-width');
+        barObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.4 });
+  bars.forEach(bar => barObserver.observe(bar));
+
+  // ============ Download CV button ============
+  // Ganti 'cv-moh-iqbal.pdf' di bawah dengan nama file CV Anda,
+  // lalu letakkan file PDF tersebut di folder yang sama dengan index.html.
+  document.getElementById('downloadCvBtn').addEventListener('click', function(e){
+    e.preventDefault();
+    const cvFile = 'cv-iqbal.pdf';
+    const link = document.createElement('a');
+    link.href = cvFile;
+    link.download = cvFile;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  });
+
+  // ============ Download Portofolio button ============
+  // Ganti 'portofolio-moh-iqbal.pdf' di bawah dengan nama file portofolio Anda,
+  // lalu letakkan file PDF tersebut di folder yang sama dengan index.html.
+  document.getElementById('downloadPortfolioBtn').addEventListener('click', function(e){
+    e.preventDefault();
+    const portfolioFile = 'portofolio-moh-iqbal.pdf';
+    const link = document.createElement('a');
+    link.href = portfolioFile;
+    link.download = portfolioFile;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  });
+</script>
+
+</body>
+</html>
